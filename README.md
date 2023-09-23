@@ -22,7 +22,7 @@ footer
 ### Type, gitmoji
 
 깃모지, 태그 : 제목의 형태
-- `:sparkles: Feat : 새로운 기능 추가`
+- `:sparkles: Code : 새로운 알고리즘 풀이 추가`
 - `:bug: Fix : 버그 수정`
 - `:memo: Docs : 문서 수정`
 - `:white_check_mark: Test : 테스트 코드 추가`
