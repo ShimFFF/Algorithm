@@ -4,11 +4,11 @@
 #define MAX_DOTS 30
 #define MAX_EDGES (MAX_DOTS * (MAX_DOTS - 1) / 2)
 
-typedef struct { //(x,y) 좌표 저장용
+typedef struct { //(x,y) 좌표 저장용도
     double x, y;
 } Point;
 
-typedef struct { //edge와 edge의 가중치 저장용
+typedef struct { //edge와 edge의 가중치 저장용도
     int start, end;
     double weight;
 } Edge;
