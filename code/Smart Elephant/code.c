@@ -12,7 +12,8 @@ typedef struct code
 void weightSort(Elephant ele [], int weightSortList [], int len){
     for(int i=1;i<len;i++){
         for(int j=0;j<i;j++){
-            if(ele[j].weight>ele[i].weight)
+            //*********************************이어서 작성하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if(ele[j].weight>ele[i].weight){}
         }
     }
 }
