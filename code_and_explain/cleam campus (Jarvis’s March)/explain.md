@@ -25,7 +25,6 @@
 *샘플*
 ```
 [샘플 입력]
-1
 4
 1.0 1.0
 -1.0 1.0
@@ -35,4 +34,56 @@
 [샘플 출력]
 10.83
 
+```
+
+## 풀이
+### Jarvis's March
+1. 가장 왼쪽에 있는 점(x좌표가 작은 점)을 찾아 시작점으로 사용
+2. 시작점으로부터 시계 방향으로 볼록 껍질을 이루는 점들을 찾아나감
+3. 다음 점을 선택하기 위해 각 점과 다른 점들 사이의 각도를 계산하여 가장 시계 방향으로 높은 각도를 가지는 점을 선택
+4. 볼록 껍질이 완성될 때까지 이러한 과정을 반복
+
+**jarvisMarch() 함수:**
+- 가장 왼쪽에 있는 점을 찾고, 이를 시작점으로 설정
+- 볼록 껍질을 이루는 점들을 hull 배열에 저장
+- 볼록 껍질의 크기를 hullSize에 저장
+- 마지막으로 hull 배열에 저장된 점들 간의 거리를 계산하여 실크의 총 길이인 sum을 반환
+
+### Presudo Code
+```
+Input:
+N: 신입생의 수
+p[]: N개의 신입생 좌표를 저장하는 배열
+
+Function JarvisMarch():
+    Initialize 변수 sum = 0
+    Initialize 점 배열 hull[] // 볼록 껍질을 저장하는 배열
+    Initialize 변수 hullSize = 0 // 볼록 껍질의 크기
+
+    // 가장 왼쪽에 있는 점을 찾음
+    가장 왼쪽에 있는 점 k를 찾음
+    k = 0
+    for i = 1 to N-1:
+        if p[i].x < p[k].x:
+            k = i
+    
+    // 볼록 껍질 구하기
+    m = k
+    do:
+        hull[hullSize] = p[m]
+        hullSize = hullSize + 1
+        j = m
+        m = (j + 1) % N
+        for i = 0 to N-1:
+            if 점 i가 p[j]와 p[m] 사이에 있으면:
+                m = i
+    while m ≠ k
+
+    // 볼록 껍질의 둘레 구하기
+    for i = 0 to hullSize-1:
+        tmp.x = hull[i].x - hull[(i + 1) % hullSize].x
+        tmp.y = hull[i].y - hull[(i + 1) % hullSize].y
+        sum = sum + sqrt(tmp.x * tmp.x + tmp.y * tmp.y)
+    
+    return sum
 ```
